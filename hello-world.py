@@ -11,3 +11,5 @@ clf = clf.fit(features, labels)
 
 # We print the prediction and it succeeds
 print (clf.predict([[150, 0]]))
+
+# by Kevin Berrio
