@@ -4,6 +4,7 @@ from sklearn import tree
 # Specify the features and labels for our test. Apples are 0, Oranges are 1
 features = [[140, 1], [130, 1], [150, 0], [170, 0]]
 labels = [0, 0, 1, 1] 
+#0 indicates a smooth texture, 1 indicates a bumpy oranges
 
 # We create a classifier with a decision tree to compare and let scikit infer what fruit may be
 clf = tree.DecisionTreeClassifier()
