@@ -1,33 +1,43 @@
 from sklearn import tree
-#sklearn is the module, and tree is a modile for clasification and regression
+
 
 #Because we understand the data, this will be a supervised learning model
 
-# Features are: smooth, light, bumpy and heavy
-# smooth = 0, bumpy = 1
+# The labels are as follow:
+# Apple = 0
+# Orange = 1
+# Lemon = 2
 
+# The features are as follow:
+# Weight
+# Texture -> Smooth = 0, Bumpy = 1
+# Color -> Red = 0, Orange = 1, Green = 2
 
-#Apple is smooth and light = 0
-#Orange is bumpy and heavier = 1
-#Limon is heavier than orange and has similar texture
+# Apples are usually red, have a smooth texture and are somewhat light in weight
+# Oranges are orange in color, have a bumpy texture and can be heavy in weight'
+# Lemons are green, have a bumpy texture, and can either be light or heavy in weight
 
+#Major Steps in ML
+# 1) Define the problem: Tell the difference between an apple, orange and lemon
 
-#Color feature:
-#Red will be 0
-#Orange will be 1
-#Green will be 2
-
-# 1) Define the problem: Diferenciar manzanas a naranjas
-# 2) Build the dataset
-
+# 2) Build the Dataset:
 
 features = [[100, 0, 0], [110, 0, 0], [103, 0, 0], [120, 1, 1], [150, 1, 1], [130, 1, 1], [120, 1, 2], [121, 1, 2], [125, 1, 2], [120, 0, 2]]
-labels = ["Manzana", "Manzana", "Manzana", "Naranja", "Naranja", "Naranja", "Limon", "Limon", "Limon", "Manzana"]
+labels = ["Apple", "Apple", "Apple", "Orange", "Orange", "Orange", "Lemon", "Lemon", "Lemon", "Apple"]
 
+# 3) Train the Model
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(features, labels)
 
-print ("Corriendo satisfactoriamente!")
+# 4) Evaluate the model
+#Create a function that takes weight, texture and color as parameters
+#The prediction is then assigned to a variable to be returned
 
-print(clf.predict([[115, 0, 2]]))
+def guessFruit(weight, texture, color):
+    result = clf.predict([[weight, texture, color]])
+    return result
+    
+    
+# 5) Use the model
+print("I predict that the fruit will be a:" , guessFruit(120, 0, 2))
 
