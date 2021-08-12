@@ -41,3 +41,4 @@ def guessFruit(weight, texture, color):
 # 5) Use the model
 print("I predict that the fruit will be a:" , guessFruit(120, 0, 2))
 
+#by Kevin
